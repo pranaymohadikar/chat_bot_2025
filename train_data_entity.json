@@ -1,0 +1,1226 @@
+[
+    [
+        "Tell me about Toyota Corolla",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    28,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Corolla?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    38,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Camry",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Camry?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Rav4",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    25,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Rav4?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    35,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Honda Civic",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    25,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Honda Civic?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    35,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Honda Accord",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Honda Accord?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Ford Mustang",
+        {
+            "entities": [
+                [
+                    14,
+                    18,
+                    "BRAND"
+                ],
+                [
+                    19,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Ford Mustang?",
+        {
+            "entities": [
+                [
+                    24,
+                    28,
+                    "BRAND"
+                ],
+                [
+                    29,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Ford F-150",
+        {
+            "entities": [
+                [
+                    14,
+                    18,
+                    "BRAND"
+                ],
+                [
+                    19,
+                    24,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Ford F-150?",
+        {
+            "entities": [
+                [
+                    24,
+                    28,
+                    "BRAND"
+                ],
+                [
+                    29,
+                    34,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Tesla Model 3",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    27,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Tesla Model 3?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    37,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Tesla Model S",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    27,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Tesla Model S?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    37,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Corolla",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    28,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Corolla?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    38,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Camry",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Camry?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Rav4",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    25,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Rav4?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    35,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Honda Civic",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    25,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Honda Civic?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    35,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Honda Accord",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Honda Accord?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Ford Mustang",
+        {
+            "entities": [
+                [
+                    14,
+                    18,
+                    "BRAND"
+                ],
+                [
+                    19,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Ford Mustang?",
+        {
+            "entities": [
+                [
+                    24,
+                    28,
+                    "BRAND"
+                ],
+                [
+                    29,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Ford F-150",
+        {
+            "entities": [
+                [
+                    14,
+                    18,
+                    "BRAND"
+                ],
+                [
+                    19,
+                    24,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Ford F-150?",
+        {
+            "entities": [
+                [
+                    24,
+                    28,
+                    "BRAND"
+                ],
+                [
+                    29,
+                    34,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Tesla Model 3",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    27,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Tesla Model 3?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    37,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Tesla Model S",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    27,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Tesla Model S?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    37,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Corolla",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    28,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Corolla?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    38,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Camry",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Camry?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Rav4",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    25,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Rav4?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    35,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Honda Civic",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    25,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Honda Civic?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    35,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Honda Accord",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Honda Accord?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Ford Mustang",
+        {
+            "entities": [
+                [
+                    14,
+                    18,
+                    "BRAND"
+                ],
+                [
+                    19,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Ford Mustang?",
+        {
+            "entities": [
+                [
+                    24,
+                    28,
+                    "BRAND"
+                ],
+                [
+                    29,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Ford F-150",
+        {
+            "entities": [
+                [
+                    14,
+                    18,
+                    "BRAND"
+                ],
+                [
+                    19,
+                    24,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Ford F-150?",
+        {
+            "entities": [
+                [
+                    24,
+                    28,
+                    "BRAND"
+                ],
+                [
+                    29,
+                    34,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Tesla Model 3",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    27,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Tesla Model 3?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    37,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Tesla Model S",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    27,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Tesla Model S?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    37,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Corolla",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    28,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Corolla?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    38,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Camry",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Camry?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Toyota Rav4",
+        {
+            "entities": [
+                [
+                    14,
+                    20,
+                    "BRAND"
+                ],
+                [
+                    21,
+                    25,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Toyota Rav4?",
+        {
+            "entities": [
+                [
+                    24,
+                    30,
+                    "BRAND"
+                ],
+                [
+                    31,
+                    35,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Honda Civic",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    25,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Honda Civic?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    35,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Honda Accord",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Honda Accord?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Ford Mustang",
+        {
+            "entities": [
+                [
+                    14,
+                    18,
+                    "BRAND"
+                ],
+                [
+                    19,
+                    26,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Ford Mustang?",
+        {
+            "entities": [
+                [
+                    24,
+                    28,
+                    "BRAND"
+                ],
+                [
+                    29,
+                    36,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Ford F-150",
+        {
+            "entities": [
+                [
+                    14,
+                    18,
+                    "BRAND"
+                ],
+                [
+                    19,
+                    24,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Ford F-150?",
+        {
+            "entities": [
+                [
+                    24,
+                    28,
+                    "BRAND"
+                ],
+                [
+                    29,
+                    34,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Tesla Model 3",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    27,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Tesla Model 3?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    37,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "Tell me about Tesla Model S",
+        {
+            "entities": [
+                [
+                    14,
+                    19,
+                    "BRAND"
+                ],
+                [
+                    20,
+                    27,
+                    "MODEL"
+                ]
+            ]
+        }
+    ],
+    [
+        "What are the details of Tesla Model S?",
+        {
+            "entities": [
+                [
+                    24,
+                    29,
+                    "BRAND"
+                ],
+                [
+                    30,
+                    37,
+                    "MODEL"
+                ]
+            ]
+        }
+    ]
+]

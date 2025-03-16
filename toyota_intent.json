@@ -1,0 +1,19 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": ["Hi", "Hello", "Hey", "How are you"],
+        "responses": ["Hello!", "Hi there!", "Good to see you!"]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["Bye", "See you later", "Goodbye"],
+        "responses": ["Goodbye!", "See you later!", "Take care!"]
+      },
+      {
+        "tag": "car_info",
+        "patterns": ["Tell me about Toyota cars", "I want to know about Toyota", "Toyota car details"],
+        "responses": ["Which Toyota car are you interested in? (Corolla, Camry, Rav4)"]
+      }
+    ]
+  }

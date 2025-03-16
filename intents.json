@@ -1,0 +1,139 @@
+{
+  "intents": [
+    {
+      "tag": "greet",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey",
+        "Good day"
+      ],
+      "responses": [
+        "Hello! How can I help you find your perfect car?",
+        "Hi there! What type of vehicle are you looking for?",
+        "Welcome! Let's find your ideal car."
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "Goodbye",
+        "See you later",
+        "Exit"
+      ],
+      "responses": [
+        "Goodbye! Happy car hunting!",
+        "Come back anytime for more car searches!",
+        "Have a great day!"
+      ]
+    },
+    {
+      "tag": "search_by_brand",
+      "patterns": [
+        "Looking for a Toyota",
+        "Show me Honda cars",
+        "Find BMW vehicles",
+        "Search for Mercedes"
+      ],
+      "responses": [
+        "Great choice! Which %s model are you interested in?",
+        "I'll show you available %s vehicles. Any specific model?",
+        "Searching our %s inventory. What's your preferred model?"
+      ]
+    },
+    {
+      "tag": "search_by_model",
+      "patterns": [
+        "Show me Camry models",
+        "Looking for Civic",
+        "Find Corolla",
+        "Search for Mustang"
+      ],
+      "responses": [
+        "Here are available %s options. Would you like to filter by year or price?",
+        "Found these %s vehicles. Need any specific features?",
+        "Here's our %s inventory. Want to refine your search?"
+      ]
+    },
+    {
+      "tag": "search_by_price",
+      "patterns": [
+        "Find cars under $20000",
+        "Show vehicles around $30000",
+        "Budget of $15000",
+        "Cars between $25000-$35000"
+      ],
+      "responses": [
+        "Searching vehicles in your %s price range. Any preferred make?",
+        "Here are options within %s. Need a specific body type?",
+        "Found cars in your budget. Want to filter by brand?"
+      ]
+    },
+    {
+      "tag": "search_by_type",
+      "patterns": [
+        "Show SUVs",
+        "Find sedans",
+        "Looking for trucks",
+        "Search convertibles"
+      ],
+      "responses": [
+        "Here are available %s options. Any price range?",
+        "Searching %s vehicles. Preferred brand?",
+        "Found these %s. Need specific features?"
+      ]
+    },
+    {
+      "tag": "search_by_year",
+      "patterns": [
+        "2020 models",
+        "Cars from 2019",
+        "Newest vehicles",
+        "2022-2023 models"
+      ],
+      "responses": [
+        "Showing vehicles from %s. Any specific make?",
+        "Here are %s models. Price range preferences?",
+        "Found these %s vehicles. Need a body type filter?"
+      ]
+    },
+    {
+      "tag": "search_by_features",
+      "patterns": [
+        "Find cars with GPS",
+        "Sunroof options",
+        "Hybrid vehicles",
+        "4WD cars"
+      ],
+      "responses": [
+        "Searching vehicles with %s. Any brand preference?",
+        "Here are options with %s. Price range?",
+        "Found cars with this feature. Need a specific model?"
+      ]
+    },
+    {
+      "tag": "help",
+      "patterns": [
+        "Help",
+        "What can you do?",
+        "Options",
+        "How to search"
+      ],
+      "responses": [
+        "I can help you search cars by: brand, model, price, type, year, or features!",
+        "You can ask for vehicles by brand name, price range, body type, or specific features!",
+        "Tell me what you're looking for - I can search by make, model, budget, or special requirements!"
+      ]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [],
+      "responses": [
+        "I'm not sure I understand. Could you rephrase that?",
+        "Let's try another way. What car are you looking for?",
+        "Sorry, I didn't catch that. Want to search by brand, price, or features?"
+      ]
+    }
+  ]
+}

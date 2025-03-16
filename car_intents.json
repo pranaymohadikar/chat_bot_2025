@@ -1,0 +1,86 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hello",
+                "Hey",
+                "How are you"
+            ],
+            "responses": [
+                "Hello!",
+                "Hi there!",
+                "Good to see you!"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye"
+            ],
+            "responses": [
+                "Goodbye!",
+                "See you later!",
+                "Take care!"
+            ]
+        },
+        {
+            "tag": "car_info",
+            "patterns": [
+                "Tell me about cars",
+                "I want to know about cars",
+                "Car details"
+            ],
+            "responses": [
+                "Which car brand are you interested in? (Toyota, Honda, Ford, Tesla)"
+            ]
+        },
+        {
+            "tag": "toyota_info",
+            "patterns": [
+                "Tell me about Toyota cars",
+                "I want to know about Toyota",
+                "Toyota car details"
+            ],
+            "responses": [
+                "Which Toyota model are you interested in?"
+            ]
+        },
+        {
+            "tag": "honda_info",
+            "patterns": [
+                "Tell me about Honda cars",
+                "I want to know about Honda",
+                "Honda car details"
+            ],
+            "responses": [
+                "Which Honda model are you interested in?"
+            ]
+        },
+        {
+            "tag": "ford_info",
+            "patterns": [
+                "Tell me about Ford cars",
+                "I want to know about Ford",
+                "Ford car details"
+            ],
+            "responses": [
+                "Which Ford model are you interested in?"
+            ]
+        },
+        {
+            "tag": "tesla_info",
+            "patterns": [
+                "Tell me about Tesla cars",
+                "I want to know about Tesla",
+                "Tesla car details"
+            ],
+            "responses": [
+                "Which Tesla model are you interested in?"
+            ]
+        }
+    ]
+}
