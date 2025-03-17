@@ -18,6 +18,7 @@ st.title("Car Information Chatbot")
 def download_nltk_data():
     nltk.download('punkt')
     nltk.download('wordnet')
+    nltk.download('punkt_tab')
     return "Downloaded"
 
 download_nltk_data()

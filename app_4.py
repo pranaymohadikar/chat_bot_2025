@@ -11,6 +11,7 @@ from sklearn.pipeline import make_pipeline
 # Download NLTK data
 nltk.download('punkt')
 nltk.download('wordnet')
+nltk.download('punkt_tab')
 
 # Initialize lemmatizer
 lemmatizer = WordNetLemmatizer()
