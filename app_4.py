@@ -149,6 +149,7 @@ def chat():
             continue
 
         predicted_tag = model.predict([processed_input])[0]
+        print(predicted_tag)
         
         # Handle brand & model-based car information
         if predicted_tag.endswith("_info"):

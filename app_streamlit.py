@@ -165,7 +165,7 @@ def process_user_input(user_input):
     model_entity = entities.get("MODEL", "")
     
     # Debug info that can be shown if needed
-    debug_info = f"Detected Brand: {brand}, Model: {model_entity}"
+    print( f"Detected Brand: {brand}, Model: {model_entity}")
     
     # Tokenize and lemmatize input for intent classification
     inp_words = nltk.word_tokenize(user_input)

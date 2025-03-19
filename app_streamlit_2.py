@@ -57,8 +57,6 @@ def load_models_and_data():
 
 model, nlp, intents = load_models_and_data()
 
-#print(type(model))
-
 # Database functions
 def get_available_brands():
     conn = sqlite3.connect('car_database.db')
@@ -71,7 +69,7 @@ def get_available_brands():
 def get_available_models(brand):
     conn = sqlite3.connect('car_database.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT distinct model FROM cars WHERE lower(brand )= lower(?)', (brand,))
+    cursor.execute('SELECT DISTINCT model FROM cars WHERE brand = ?', (brand,))
     models = [row[0] for row in cursor.fetchall()]
     conn.close()
     return models
@@ -79,7 +77,7 @@ def get_available_models(brand):
 def get_car_details(brand, model):
     conn = sqlite3.connect('car_database.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT price, engine, features FROM cars WHERE lower(brand) = lower(?) AND lower(model) = lower(?)', (brand, model))
+    cursor.execute('SELECT price, engine, features FROM cars WHERE brand = ? AND model = ?', (brand, model))
     result = cursor.fetchone()
     conn.close()
     
@@ -93,24 +91,14 @@ def extract_entities(text):
     return {ent.label_: ent.text for ent in doc.ents}
 
 # Session state variables
-#========19-3-25=====#
-#username added
 if "username" not in st.session_state:
     st.session_state.username = None
-    
+
 if "context" not in st.session_state:
-    st.session_state.context ='name_request'  # Start by asking for the user's name
-    
+    st.session_state.context = 'name_request'  # Start by asking for the user's name
 
-#=============#19-3-25=======================#
-    
-    
 if 'messages' not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Hello! What's your name?"}]
-    #=============#19-3-25=======================#
-
-# if 'context' not in st.session_state:
-#     st.session_state.context = None 
+    st.session_state.messages = [{"role": "assistant", "content": "Hello! I'm your car assistant. How can I help?"}]
 
 if 'current_brand' not in st.session_state:
     st.session_state.current_brand = None
@@ -124,43 +112,30 @@ for message in st.session_state.messages:
 def process_user_input(user_input):
     if not user_input:
         return
-    
+
     st.session_state.messages.append({"role": "user", "content": user_input})
     
-        #==================19-3-25================================#  
     if st.session_state.context == "name_request":
         st.session_state.username = user_input  # Store the name
         response = f"Nice to meet you, {user_input}! How can I assist you with car information?"
-        st.session_state.context = None # added to dont go to the brand selection
-        # st.session_state.context = "brand_selection"  # Move to the next step
+        st.session_state.context = "brand_selection"
         st.session_state.messages.append({"role": "assistant", "content": response})
         st.rerun()
-    #==================19-3-25================================#
 
     # Entity extraction
     entities = extract_entities(user_input)
     brand = entities.get("BRAND", "").capitalize()
-    model_entity = entities.get("MODEL", "").capitalize()
-    print(model_entity)
+    model_entity = entities.get("MODEL", "")
     print(brand)
+    print(model_entity)
 
     # Tokenize and classify intent
     processed_input = ' '.join([lemmatizer.lemmatize(word.lower()) for word in nltk.word_tokenize(user_input)])
     predicted_tag = model.predict([processed_input])[0]
-    
-    #added 18-3-2025 21:53
-    print(predicted_tag)
-    print(processed_input)
 
-
-
-    #handle name request
-    
-  
     response = ""
-    
-#==================19-3-25===============================#
-    # changes for the both brand and model entity 
+
+    # **Direct Brand & Model Query Handling**
     if brand and model_entity:
         car_details = get_car_details(brand, model_entity)
         print(car_details)
@@ -174,63 +149,14 @@ def process_user_input(user_input):
         else:
             response = f"No details found for {brand} {model_entity}. Try another one?"
             st.session_state.context = "brand_selection"
-            
-#==================19-3-25===============================#   
 
-    # elif predicted_tag.endswith("_info") or st.session_state.context == "model_selection":
-    #     if brand:
-    #         st.session_state.current_brand = brand  # Ensure brand is stored correctly
-    #         st.session_state.context = "model_selection"
-    #         response = f"Great! Now, please choose a model for {brand}."
-            
-    #     elif st.session_state.current_brand and model_entity:
-    #         # User already selected a brand, now entering a model
-    #         car_details = get_car_details(st.session_state.current_brand, model_entity)
-    #         if car_details:
-    #             response = f"### {st.session_state.current_brand} {model_entity} Details:\n"
-    #             response += f"**Price:** {car_details['price']}\n"
-    #             response += f"**Engine:** {car_details['engine']}\n"
-    #             response += f"**Features:** {', '.join(car_details['features'])}\n\n"
-    #             response += "Would you like to check another car?"
-    #             st.session_state.context = "ask_another_car"
-    #         else:
-    #             response = f"Sorry, no details found for {st.session_state.current_brand} {model_entity}. Try another model?"
-    #     else:
-    #         response = "I didn't get that. Can you specify a brand or model?"
-         
     elif predicted_tag.endswith("_info"):
-        if brand and model_entity:
-            car_details = get_car_details(brand, model_entity)
-            if car_details:
-                response = f"### {brand} {model_entity} Details:\n"
-                response += f"**Price:** {car_details['price']}\n"
-                response += f"**Engine:** {car_details['engine']}\n"
-                response += f"**Features:** {', '.join(car_details['features'])}\n\n"
-                response += "Would you like to check another car?"
-                st.session_state.context = "ask_another_car"
-            else:
-                response = f"No details found for {brand} {model_entity}. Try another one?"
-                st.session_state.context = "brand_selection"
-        elif brand:
+        if brand:
             st.session_state.context = "model_selection"
             st.session_state.current_brand = brand
         else:
             st.session_state.context = "brand_selection"
-    
-    elif st.session_state.context == "model_selection":
-        if model_entity:
-            
-            car_details = get_car_details(st.session_state.current_brand, model_entity)
-            if car_details:
-                response = f"### {st.session_state.current_brand} {model_entity} Details:\n"
-                response += f"**Price:** {car_details['price']}\n"
-                response += f"**Engine:** {car_details['engine']}\n"
-                response += f"**Features:** {', '.join(car_details['features'])}\n\n"
-                response += "Would you like to check another car?"
-                st.session_state.context = "ask_another_car"
-            else:
-                response = f"Sorry, no details for {model_entity}. Try another?"
-    
+
     elif st.session_state.context == "ask_another_car":
         if user_input.lower() in ["yes", "y"]:
             st.session_state.context = "brand_selection"
@@ -253,35 +179,17 @@ def process_user_input(user_input):
     st.rerun()
 
 # **Brand Selection UI**
-if st.session_state.context == "brand_selection" :
+if st.session_state.context == "brand_selection":
     st.write("### Select a car brand:")
     brands = get_available_brands()
-    cols = st.columns(len(brands))  # Create buttons in a row
+    cols = st.columns(len(brands))
     for i, brand in enumerate(brands):
         if cols[i].button(brand):
-            #need to copy the content of the button changed on 18-3-25
             st.session_state.messages.append({"role": "user", "content": brand})
             st.session_state.current_brand = brand
             st.session_state.context = "model_selection"
             st.rerun()
 
-# **Model Selection UI**
-if st.session_state.context == "model_selection":
-    st.write(f"### Select a model for {st.session_state.current_brand}:")
-    models = get_available_models(st.session_state.current_brand)
-    cols = st.columns(len(models))
-    for i, j in enumerate(models):
-        if cols[i].button(j):
-            #need to copy the content of the button changed on 18-3-25
-            st.session_state.messages.append({"role": "user", "content": j})
-            process_user_input(f"{st.session_state.current_brand} {j}")
-            st.rerun()
-#==================19-3-25================================#             
-# if st.session_state.context == "name_request":
-#     st.session_state.messages.append({"role": "assistant", "content": "Hello! What's your name?"})
-#     st.session_state.context = "waiting_for_name"
-#     st.rerun()
-#==================19-3-25================================# 
 # **Chat Input**
 user_input = st.chat_input("Type your message here...")
 if user_input:
