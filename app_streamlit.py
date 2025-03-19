@@ -118,7 +118,7 @@ def get_available_models(brand):
     cursor = conn.cursor()
     
     # Fetch all models for the given brand
-    cursor.execute('SELECT distinct model FROM cars WHERE brand = ?', (brand,))
+    cursor.execute('SELECT distinct model FROM cars WHERE brand = ?', (brand,)) #added distinct keyword on 18/3/25
     models = [row[0] for row in cursor.fetchall()]
     
     conn.close()

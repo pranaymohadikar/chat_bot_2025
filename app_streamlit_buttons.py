@@ -127,7 +127,7 @@ def process_user_input(user_input):
     print(processed_input)
 
     response = ""
-
+    # changes for the both brand and model entity 
     if predicted_tag.endswith("_info"):
         if brand and model_entity:
             car_details = get_car_details(brand, model_entity)
@@ -188,6 +188,8 @@ if st.session_state.context == "brand_selection":
     cols = st.columns(len(brands))  # Create buttons in a row
     for i, brand in enumerate(brands):
         if cols[i].button(brand):
+            #need to copy the content of the button changed on 18-3-25
+            st.session_state.messages.append({"role": "user", "content": brand})
             st.session_state.current_brand = brand
             st.session_state.context = "model_selection"
             st.rerun()
@@ -199,6 +201,8 @@ if st.session_state.context == "model_selection":
     cols = st.columns(len(models))
     for i, j in enumerate(models):
         if cols[i].button(j):
+            #need to copy the content of the button changed on 18-3-25
+            st.session_state.messages.append({"role": "user", "content": j})
             process_user_input(f"{st.session_state.current_brand} {j}")
             st.rerun()
 
