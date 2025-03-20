@@ -1,0 +1,28 @@
+Table: chat_sessions
+This table stores session-level information.
+
+session_id (TEXT, PRIMARY KEY) – A unique ID for each session.
+user_name (TEXT) – The name of the user (if collected).
+start_time (DATETIME) – When the session started.
+end_time (DATETIME) – When the session ended.
+
+
+Table: chat_messages
+This table stores each message in the session.
+
+message_id (INTEGER, PRIMARY KEY, AUTOINCREMENT) – Unique message ID.
+session_id (TEXT, FOREIGN KEY) – Links to chat_sessions.session_id.
+sender (TEXT) – Either "user" or "bot".
+message_text (TEXT) – The actual message content.
+timestamp (DATETIME) – When the message was sent.
+
+
+Table: car_queries
+This table records specific car-related inquiries.
+
+query_id (INTEGER, PRIMARY KEY, AUTOINCREMENT) – Unique query ID.
+session_id (TEXT, FOREIGN KEY) – Links to chat_sessions.session_id.
+brand (TEXT) – The car brand requested.
+model (TEXT) – The car model requested.
+response (TEXT) – The chatbot’s response.
+timestamp (DATETIME) – When the query was made.

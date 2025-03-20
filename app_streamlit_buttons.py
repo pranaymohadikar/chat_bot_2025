@@ -8,10 +8,70 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
+#added onn 20-3-25
+import uuid
+import datetime
+
+
 
 # Page configuration
 st.set_page_config(page_title="Car Information Chatbot", page_icon="🚗")
 st.title("🚗 Car Information Chatbot")
+
+#===============20-3-25====================================#
+db_name = "chatbot.db"
+
+class ChatbotSession:
+    def __init__(self):
+        #initialized the chatbot session
+        self.session_id = str(uuid.uuid4()) #generate unique session id
+        self.user_name = None
+        self.start_time =datetime.datetime.now()
+        self.context = None
+        self.store_session()
+        
+    def store_session(self):
+        #save session start details in the db
+        
+        conn = sqlite3.connect(db_name)
+        cursor=conn.cursor()
+        cursor.execute('''insert into chat_sessions (
+            session_id, start_time
+            ) values(?, ?)''', (self.session_id, self.start_time))
+        conn.commit()
+        conn.close()
+        
+    def update_user_name(self, user_name):
+        self.user_name = user_name
+        conn = sqlite3.connect(db_name)
+        cursor = conn.cursor()
+        cursor.execute('''
+            UPDATE chat_sessions SET user_name = ? WHERE session_id = ?
+        ''', (self.user_name, self.session_id))
+        conn.commit()
+        conn.close()
+        
+        
+        
+    def close_session(self):
+        "update the session_endtime"
+        conn= sqlite3.connect(db_name)
+        cursor=conn.cursor()
+        end_time = datetime.datetime.now()
+        cursor.execute('''
+                       update chat_sessions set end_time = ? where
+                       session_id = ?
+                       ''', (end_time, self.session_id))
+        conn.commit()
+        conn.close()
+        print("session_closed")
+        
+#start session
+
+if "chatbot_session" not in st.session_state:
+    st.session_state.chatbot_session = ChatbotSession()
+#===================================================================
+    
 
 # Download NLTK data (only runs once)
 @st.cache_resource
@@ -115,10 +175,21 @@ if 'messages' not in st.session_state:
 if 'current_brand' not in st.session_state:
     st.session_state.current_brand = None
 
+#=========20 3 25 chnages for left and right alignment================
+
+
 # Display messages
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.write(message["content"])
+    if message['role'] == 'user':
+        with st.chat_message("user"):
+            st.markdown(f"<div style='text-align: right;'>{message['content']}</div>", unsafe_allow_html=True) 
+    else:
+        with st.chat_message("assistant"):
+            st.markdown(f"<div style='text-align: left;'>{message['content']}</div>", unsafe_allow_html=True)
+            #st.write(message["content"])
+# for message in st.session_state.messages:
+#     with st.chat_message(message["role"]):
+#         st.write(message["content"])
 
 # Process user input
 def process_user_input(user_input):
@@ -127,9 +198,17 @@ def process_user_input(user_input):
     
     st.session_state.messages.append({"role": "user", "content": user_input})
     
+    user_input = user_input.title()
+    
         #==================19-3-25================================#  
     if st.session_state.context == "name_request":
         st.session_state.username = user_input  # Store the name
+        #=================20-3-25=================================
+        #st.session_state.chatbot_session.store_session() #to start the session
+        
+        st.session_state.chatbot_session.update_user_name(user_input) # update session with the user name
+        #===================================================================
+        
         response = f"Nice to meet you, {user_input}! How can I assist you with car information?"
         st.session_state.context = None # added to dont go to the brand selection
         # st.session_state.context = "brand_selection"  # Move to the next step
@@ -141,16 +220,16 @@ def process_user_input(user_input):
     entities = extract_entities(user_input)
     brand = entities.get("BRAND", "").capitalize()
     model_entity = entities.get("MODEL", "").capitalize()
-    print(model_entity)
-    print(brand)
+    print(f'extracted entities: {entities}')
 
     # Tokenize and classify intent
     processed_input = ' '.join([lemmatizer.lemmatize(word.lower()) for word in nltk.word_tokenize(user_input)])
     predicted_tag = model.predict([processed_input])[0]
     
     #added 18-3-2025 21:53
-    print(predicted_tag)
     print(processed_input)
+    print(predicted_tag)
+    
 
 
 
@@ -237,6 +316,8 @@ def process_user_input(user_input):
         elif user_input.lower() in ["no", "n"]:
             st.session_state.context = None
             response = "Okay! Let me know if you need anything else."
+            #====================20-3-25=====================
+            st.session_state.chatbot_session.close_session()  # Close the session
         else:
             response = "Please answer 'yes' or 'no'."
 
@@ -273,7 +354,11 @@ if st.session_state.context == "model_selection":
     for i, j in enumerate(models):
         if cols[i].button(j):
             #need to copy the content of the button changed on 18-3-25
+            
+            #added this on 20-3-25
+            #user_input = f"{st.session_state.current_brand}{j}"
             st.session_state.messages.append({"role": "user", "content": j})
+            #process_user_input(user_input)
             process_user_input(f"{st.session_state.current_brand} {j}")
             st.rerun()
 #==================19-3-25================================#             
