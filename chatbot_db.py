@@ -2,7 +2,7 @@ import sqlite3
 import uuid
 import datetime
 #==============================20-3-25=============================================
-# # create database as chatbot.db
+# create database as chatbot.db
 
 # db_name = "chatbot.db"
 
@@ -22,7 +22,16 @@ import datetime
 #                        end_time  datetime
 #                    )
                    
-#                    ''')    
+#                    ''')   
+    
+#     cursor.execute('''create table if not exists chat_messages (
+#         message_id integer primary key autoincrement,
+#         session_id text forign key,
+#         sender text,
+#         message_text text,
+#         timestamp datetime,
+#         foreign key (session_id) references chat_sessions(session_id))
+# ''') 
     
 #     conn.commit()
 #     conn.close()
@@ -45,12 +54,23 @@ import datetime
         
 #         conn = sqlite3.connect(db_name)
 #         cursor=conn.cursor()
-#         Cursor.execute('''insert into chat_sessions (
+#         cursor.execute('''insert into chat_sessions (
 #             session_id, start_time
 #             ) values(?, ?)''', (self.session_id, self.start_time))
 #         conn.commit()
 #         conn.close()
         
+#     def store_messages(self, sender, message, time):
+#         #save the messags from bot and user
+#         timestamp = datetime.datetime.now()
+#         conn = sqlite3.connect(db_name)
+#         cursor = conn.cursor()
+#         cursor.execute('''
+#                        insert into chat_messages (session_id, sender, message_text, timestamp) values (?,?,?,?)
+#                        ''', (self.session_id, sender, message, timestamp))
+        
+#         conn.commit()
+#         conn.close()
         
 #     def close_session(self):
 #         "update the session_endtime"
@@ -70,23 +90,47 @@ import datetime
 # session = ChatbotSession()
         
         
+# db_name = "chatbot.db"
+# conn = sqlite3.connect(db_name)
+# cursor = conn.cursor()
+
+# # Query the chat_sessions table
+# cursor.execute("SELECT * FROM chat_sessions")
+# rows = cursor.fetchall()
+# #print(rows)
+
+# # Print the results
+# if rows:
+#     print("Session Data:")
+#     for row in rows:
+#         print(f"Session ID: {row[0]}, User Name: {row[1]}, Start Time: {row[2]}, End Time: {row[3]}")
+# else:
+#     print("No session data found.")
+
+# # Close the connection
+# conn.close()
+
+#==============================20-3-25=============================================
+
+#+==================================22-3-25=====================================
 db_name = "chatbot.db"
 conn = sqlite3.connect(db_name)
 cursor = conn.cursor()
 
 # Query the chat_sessions table
-cursor.execute("SELECT * FROM chat_sessions")
-rows = cursor.fetchall()
+cursor.execute("SELECT * FROM chat_messages")
+messages = cursor.fetchall()
+#print(rows)
 
 # Print the results
-if rows:
-    print("Session Data:")
-    for row in rows:
-        print(f"Session ID: {row[0]}, User Name: {row[1]}, Start Time: {row[2]}, End Time: {row[3]}")
+if messages:
+    print("===== Chat Messages =====")
+    for message in messages:
+        print(f"Message ID: {message[0]}, Session ID: {message[1]}, Sender: {message[2]}, Message: {message[3]}, Timestamp: {message[4]}")
 else:
-    print("No session data found.")
+    print("No chat messages found.")
 
 # Close the connection
 conn.close()
 
-#==============================20-3-25=============================================
+#===========================================================================================

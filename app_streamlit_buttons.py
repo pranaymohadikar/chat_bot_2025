@@ -29,6 +29,7 @@ class ChatbotSession:
         self.start_time =datetime.datetime.now()
         self.context = None
         self.store_session()
+        self.store_messages("assistant", "Hello! What's your name?")
         
     def store_session(self):
         #save session start details in the db
@@ -51,6 +52,22 @@ class ChatbotSession:
         conn.commit()
         conn.close()
         
+#==============================22-3-25=======================        
+    def store_messages(self, sender, message):
+        #save the messags from bot and user
+        timestamp = datetime.datetime.now()
+        conn = sqlite3.connect(db_name)
+        cursor = conn.cursor()
+        cursor.execute('''
+                       insert into chat_messages (session_id, sender, message_text, timestamp) values (?,?,?,?)
+                       ''', (self.session_id, sender, message, timestamp))
+        message_id = cursor.lastrowid
+        
+        
+        
+        conn.commit()
+        conn.close()
+#==============================22-3-25=======================        
         
         
     def close_session(self):
@@ -164,6 +181,10 @@ if "context" not in st.session_state:
 
 #=============#19-3-25=======================#
     
+#==========================22-3-25==================================
+if "session_closed" not in st.session_state:
+    st.session_state.session_closed = False # Track if the session is closed
+#===================================================================================
     
 if 'messages' not in st.session_state:
     st.session_state.messages = [{"role": "assistant", "content": "Hello! What's your name?"}]
@@ -196,9 +217,22 @@ def process_user_input(user_input):
     if not user_input:
         return
     
+    #storing user messsge================22-3-25==================
+    st.session_state.chatbot_session.store_messages("user", user_input)
     st.session_state.messages.append({"role": "user", "content": user_input})
     
     user_input = user_input.title()
+    
+    
+    #===============================22-3-25=================================
+    
+    if st.session_state.context == "session_closed":
+        st.session_state.chatbot_session.close_session()  # Close the previous session
+        st.session_state.chatbot_session = ChatbotSession()  # Start a new session
+        st.session_state.context = "name_request"  # Reset context to ask for the user's name
+        st.session_state.messages = [{"role": "assistant", "content": "Hello! What's your name?"}]  # Reset messages
+        st.rerun()
+    
     
         #==================19-3-25================================#  
     if st.session_state.context == "name_request":
@@ -213,6 +247,12 @@ def process_user_input(user_input):
         st.session_state.context = None # added to dont go to the brand selection
         # st.session_state.context = "brand_selection"  # Move to the next step
         st.session_state.messages.append({"role": "assistant", "content": response})
+        
+        #=========================22-3-25================================
+        
+        st.session_state.chatbot_session.store_messages('bot',response)
+        
+        #=========================22-3-25================================
         st.rerun()
     #==================19-3-25================================#
 
@@ -314,7 +354,12 @@ def process_user_input(user_input):
         if user_input.lower() in ["yes", "y"]:
             st.session_state.context = "brand_selection"
         elif user_input.lower() in ["no", "n"]:
-            st.session_state.context = None
+            
+            #================================22-3-25=================
+            st.session_state.context = "session_closed"  # Mark session as closed
+            
+            #================================================================
+            #st.session_state.context = None
             response = "Okay! Let me know if you need anything else."
             #====================20-3-25=====================
             st.session_state.chatbot_session.close_session()  # Close the session
@@ -329,6 +374,11 @@ def process_user_input(user_input):
         
         if not response:
             response = "I'm not sure. Can you rephrase?"
+            
+    #========================22-3-25-==================================
+    st.session_state.chatbot_session.store_messages('bot', response)
+    
+    #====================================================================
 
     st.session_state.messages.append({"role": "assistant", "content": response})
     st.rerun()

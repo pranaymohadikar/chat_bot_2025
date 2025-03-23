@@ -25,4 +25,4 @@ session_id (TEXT, FOREIGN KEY) – Links to chat_sessions.session_id.
 brand (TEXT) – The car brand requested.
 model (TEXT) – The car model requested.
 response (TEXT) – The chatbot’s response.
-timestamp (DATETIME) – When the query was made.
+timestamp (DATETIME) – When the query was made
